@@ -19,11 +19,11 @@ def download_image():
     image_url, title,date = get_bing_image_info()
     response = requests.get(image_url,verify=False,headers=headers)
     if response.status_code == 200:
-        # 生成文件名（日期格式）
-        filename = f"images/{date}"
+        year = date[:4]
+        filename = f"images/{year}/{date}"
 
         # 创建 images 目录（如果不存在）
-        os.makedirs("images", exist_ok=True)
+        os.makedirs(f"images/{year}", exist_ok=True)
 
         # 保存图片
         with open(filename+".jpg", "wb") as f:
