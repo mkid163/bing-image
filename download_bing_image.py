@@ -30,7 +30,7 @@ def download_image():
             f.write(response.content)
         with open(filename + "-title.txt", "w",encoding="utf-8") as f:
             f.write(title)
-        print(f"Downloaded: {filename}")
+        print(f"Downloaded: {filename}.jpg")
     else:
         print("Failed to download image")
 
